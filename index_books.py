@@ -12,7 +12,17 @@ def parse_book_txt(book_filename):
     book_text = False
     paragraph = []
     count = 0
+    title = ''
+    author = ''
+
     for line in open(book_filename, 'r'):
+        # Find title and author
+        if not title and 'Title:' in line:
+            title = line.split(':')[1].strip()
+        if not author and 'Author:' in line:
+            author = line.split(':')[1].strip()
+
+        # Find Start and End of text
         if 'START OF THE PROJECT GUTENBERG EBOOK' in line:
             book_text = True
             line = ''
@@ -22,7 +32,14 @@ def parse_book_txt(book_filename):
             if line.strip() == '':
                 text = ''.join(paragraph).strip().decode('utf-8')
                 if text.strip() != '':
-                    book_paragraphs.append({'file': book_filename, 'id': count, 'text': text})
+                    data = {
+                            'file': book_filename,
+                            'title': title,
+                            'author': author,
+                            'paragraph_id': count,
+                            'text': text,
+                           }
+                    book_paragraphs.append(data)
                     count += 1
                 paragraph = []
             else:

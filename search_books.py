@@ -22,7 +22,7 @@ def main(search_terms, max_results):
             break
         source = r['_source']
         print '+' * 79
-        for label in ['file', 'id', 'text']:
+        for label in ['file', 'title', 'author', 'paragraph_id', 'text']:
             print '%s:\t%s' % (label, source[label])
         print '-' * 79 + '\n'
 
