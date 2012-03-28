@@ -30,9 +30,6 @@ def main(search_terms, max_results):
 if __name__ == "__main__":
     terms = ['something']
     max_results = 5
-    if len(sys.argv) < 2:
-        print 'Please supply a search word'
-        sys.exit()
     if len(sys.argv) >= 2:
         terms = sys.argv[1].split()
     if len(sys.argv) == 3:

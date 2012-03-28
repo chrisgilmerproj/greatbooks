@@ -1,5 +1,6 @@
 #! /usr/local/bin/python
 
+import glob
 import os
 
 import pyes
@@ -67,9 +68,10 @@ def main():
         pass
 
     # Parse each book
-    book_path = os.path.abspath(os.path.join(os.getcwd(), settings.BOOK_FOLDER, settings.BOOK_TYPE))
-    book_filename_list = os.listdir(book_path)
-    for filename in book_filename_list:
+    book_path = os.path.join(os.getcwd(), settings.BOOK_FOLDER, 'volume_*', '*.%s' % settings.BOOK_TYPE)
+
+    for filename in glob.glob(book_path):
+        print filename
         if filename[-len(settings.BOOK_TYPE):] == settings.BOOK_TYPE:
             paragraphs = parse_book_txt(os.path.join(book_path, filename))
             for data in paragraphs:
