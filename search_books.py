@@ -14,12 +14,6 @@ def main(search_term):
 
     conn = pyes.ES(settings.ES_CLUSTER)
 
-    # Try to create the index
-    try:
-        conn.create_index(settings.INDEX_NAME)
-    except Exception:
-        pass
-
     q = pyes.TermQuery("text", search_term)
     results = conn.search(query=q)
     for r in results['hits']['hits']:
