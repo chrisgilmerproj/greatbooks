@@ -7,16 +7,19 @@ import pyes
 import settings
 
 
-def main(search_term):
+def main(search_terms, max_results):
     """
     This searches books
     """
 
     conn = pyes.ES(settings.ES_CLUSTER)
 
-    q = pyes.TermQuery("text", search_term)
+    q = pyes.TermsQuery("text", search_terms)
     results = conn.search(query=q)
-    for r in results['hits']['hits']:
+
+    for num, r in enumerate(results['hits']['hits']):
+        if num >= max_results:
+            break
         source = r['_source']
         print '+' * 79
         for label in ['file', 'id', 'text']:
@@ -25,9 +28,13 @@ def main(search_term):
 
 
 if __name__ == "__main__":
-    if len(sys.argv) == 2:
-        term = sys.argv[1]
-        main(term)
-    else:
+    terms = ['something']
+    max_results = 5
+    if len(sys.argv) < 2:
         print 'Please supply a search word'
         sys.exit()
+    if len(sys.argv) >= 2:
+        terms = sys.argv[1].split()
+    if len(sys.argv) == 3:
+        max_results = int(sys.argv[2])
+    main(terms, max_results)
