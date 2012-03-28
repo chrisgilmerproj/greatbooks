@@ -37,6 +37,12 @@ def main():
 
     conn = pyes.ES(settings.ES_CLUSTER)
 
+    # Delete any existing index
+    try:
+        conn.delete_index(settings.INDEX_NAME)
+    except Exception:
+        pass
+
     # Try to create the index
     try:
         conn.create_index(settings.INDEX_NAME)
@@ -52,10 +58,6 @@ def main():
             for data in paragraphs:
                 conn.index(data, settings.INDEX_NAME, settings.TYPE_NAME)
 
-    q = pyes.TermQuery("text", "him")
-    results = conn.search(query=q)
-    for r in results['hits']['hits']:
-        print r
 
 if __name__ == "__main__":
     main()

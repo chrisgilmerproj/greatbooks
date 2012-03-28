@@ -23,9 +23,12 @@ def main(search_term):
     q = pyes.TermQuery("text", search_term)
     results = conn.search(query=q)
     for r in results['hits']['hits']:
-        print '+++Start+++'
-        print r['_source']['text'], '\n'
-        print '---End---'
+        source = r['_source']
+        print '+' * 79
+        for label in ['file', 'id', 'text']:
+            print '%s:\t%s' % (label, source[label])
+        print '-' * 79 + '\n'
+
 
 if __name__ == "__main__":
     if len(sys.argv) == 2:
