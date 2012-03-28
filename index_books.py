@@ -20,7 +20,7 @@ def parse_book_txt(book_filename):
             book_text = False
         if book_text:
             if line.strip() == '':
-                text = ''.join(paragraph).strip()
+                text = ''.join(paragraph).strip().decode('utf-8')
                 if text.strip() != '':
                     book_paragraphs.append({'file': book_filename, 'id': count, 'text': text})
                     count += 1
