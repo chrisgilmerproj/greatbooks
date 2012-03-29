@@ -1,7 +1,7 @@
 #! /usr/local/bin/python
 
+import argparse
 import random
-import sys
 
 import pyes
 
@@ -51,10 +51,13 @@ def main(search_terms, max_results):
 
 
 if __name__ == "__main__":
-    terms = [random.choice(TERM_LIST).lower()]
-    max_results = 5
-    if len(sys.argv) >= 2:
-        terms = sys.argv[1].split()
-    if len(sys.argv) == 3:
-        max_results = int(sys.argv[2])
-    main(terms, max_results)
+    parser = argparse.ArgumentParser(description='Search your books.')
+    parser.add_argument('terms', metavar='TERM', type=str, nargs='*',
+                        default=[random.choice(TERM_LIST).lower()],
+                        help='Search term')
+    parser.add_argument('-m', '--max_results', dest='max_results', action='store',
+                        default=5,
+                        help='Determine the max number of results')
+
+    args = parser.parse_args()
+    main(args.terms, args.max_results)
