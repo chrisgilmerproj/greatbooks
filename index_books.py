@@ -9,6 +9,12 @@ import settings
 
 
 def parse_book_txt(book_filename):
+    """
+    Parse the text file and return a processed book.
+
+    This is a collection of dictionaries divided by paragraph in a
+    brute force kind of way.
+    """
     book_paragraphs = []
     book_text = False
     paragraph = []
