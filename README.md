@@ -7,7 +7,7 @@ to index [The Great Books of the Western World](http://en.wikipedia.org/wiki/Gre
 to make them searchable.  I own a copy of these books myself and thought
 bringing them into the digital age would be a lot of fun.  Only some of these
 books are currently in the project and I'm using [Project Gutenberg](http://www.gutenberg.org/)
-for my source material.  Please support them.
+for my source material.  Please support all of these good projects.
 
 
 ## Installation
