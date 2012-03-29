@@ -15,7 +15,7 @@ SYNTOPICON_01 = ['Angel', 'Animal', 'Aristocracy', 'Art', 'Astronomy',
     'Good and Evil', 'Government', 'Habit', 'Happiness', 'History', 'Honor',
     'Hypothesis', 'Idea', 'Immortality', 'Induction', 'Infinity', 'Judgment',
     'Justice', 'Knowledge', 'Labor', 'Language', 'Law', 'Liberty',
-    'Life and Death', 'Logic', 'and Love']
+    'Life and Death', 'Logic', 'Love']
 SYNTOPICON_02 = ['Man', 'Mathematics', 'Matter', 'Mechanics', 'Medicine',
     'Memory and Imagination', 'Metaphysics', 'Mind', 'Monarchy', 'Nature',
     'Necessity and Contingency', 'Oligarchy', 'One and Many', 'Opinion',
@@ -25,7 +25,7 @@ SYNTOPICON_02 = ['Man', 'Mathematics', 'Matter', 'Mechanics', 'Medicine',
     'Same and Other', 'Science', 'Sense', 'Sign and Symbol', 'Sin', 'Slavery',
     'Soul', 'Space', 'State', 'Temperance', 'Theology', 'Time', 'Truth',
     'Tyranny', 'Universal and Particular', 'Virtue and Vice', 'War and Peace',
-    'Wealth', 'Will', 'Wisdom', 'and World']
+    'Wealth', 'Will', 'Wisdom', 'World']
 TERM_LIST = SYNTOPICON_01 + SYNTOPICON_02
 
 
@@ -33,7 +33,7 @@ def main(search_terms, max_results):
     """
     This searches books
     """
-    print 'Searching documents for %s results of: %s' % (max_results, search_terms)
+    print 'Searching documents for %s results of: %s' % (max_results, ' '.join(search_terms))
 
     conn = pyes.ES(settings.ES_CLUSTER)
 
