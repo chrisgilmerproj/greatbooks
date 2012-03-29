@@ -23,4 +23,6 @@ Index your books:
 
 Search your books:
 
-    $ ./search_books.py
+    $ ./search_books.py           # Search word is random
+    $ ./search_books.py rhetoric  # Search for a word
+    $ ./search_books.py great 5   # Search for a word, set max results
