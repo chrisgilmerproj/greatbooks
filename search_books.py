@@ -55,7 +55,7 @@ if __name__ == "__main__":
     parser.add_argument('terms', metavar='TERM', type=str, nargs='*',
                         default=[random.choice(TERM_LIST).lower()],
                         help='Search term')
-    parser.add_argument('-m', '--max_results', dest='max_results', action='store',
+    parser.add_argument('-m', '--max_results', type=int, dest='max_results', action='store',
                         default=5,
                         help='Determine the max number of results')
 
