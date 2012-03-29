@@ -1,7 +1,8 @@
 # Introduction
 
 This project is for educational purposes only to help learn to use
-[elasticsearch](http://www.elasticsearch.org).  In this project I attempt
+[elasticsearch](http://www.elasticsearch.org) and the python package
+[pyes](https://github.com/aparo/pyes).  In this project I attempt
 to index [The Great Books of the Western World](http://en.wikipedia.org/wiki/Great_Books_of_the_Western_World)
 to make them searchable.  I own a copy of these books myself and thought
 bringing them into the digital age would be a lot of fun.  Only some of these
